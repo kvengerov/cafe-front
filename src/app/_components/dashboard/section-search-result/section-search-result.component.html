@@ -1,0 +1,47 @@
+<section class="stores" *ngIf="!error; else errorMessage">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="stores-box">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="stores-image"
+                   [ngStyle]="{'background-image': 'url(' + store?.imageSrc + ')'}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="stores-details">
+                <div [ngStyle]="{'position': 'relative'}"></div>
+                <p class="stores-details__name">{{store?.name}}</p>
+                <div>
+                  <span class="stores-details__additional"><i class="fa fa-map-marker"></i>{{store?.location}}</span>
+                  <span class="stores-details__additional"><i class="fa fa-phone"></i>+{{store?.phone}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <a class="auth-button button-details" (click)="closeWin()"
+           [routerLink]="['/stores', store?._id]">See more...</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #errorMessage>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          {{store}}
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-template>

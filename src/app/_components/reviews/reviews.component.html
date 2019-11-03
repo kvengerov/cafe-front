@@ -1,0 +1,17 @@
+<section class="add-review" *ngIf="authService.userLogin; else login">
+  <button class="review-form__button" (click)="addReview()">Добавить отзыв</button>
+</section>
+
+<ng-template #login>
+  <button class="review-form__button" (click)="onCreateLogin()">Добавить отзыв</button>
+</ng-template>
+
+<section class="reviews">
+  <div class="continer">
+    <div class="row justify-content-md-center">
+      <div class="col-sm-10">
+        <app-review *ngFor="let review of eventBusService.reviewData" [review]="review"></app-review>
+      </div>
+    </div>
+  </div>
+</section>

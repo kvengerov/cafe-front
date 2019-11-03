@@ -1,0 +1,27 @@
+<section class="review__container">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-12">
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let review of reviewData | slice:0:9">
+            <ng-template carouselSlide>
+              <div class="review">
+                <p style="color: #d9d9d9; font-size: 10px">Id Store: {{review.storeId}}</p>
+                <h3 class="review__title">{{review.title}}</h3>
+                <p class="review__text">{{review.text}}</p>
+                <p class="review__author">{{review.authorName}}</p>
+                <fieldset class="rating">
+                  <div class="rating__group">
+                    <input class="rating__star" type="radio" *ngFor="let choice of choices"
+                           [checked]="choice == this.review.rating" disabled>
+                  </div>
+                </fieldset>
+                <p class="review__text">{{review.created | date:'d/LLLL/y'}}</p>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </div>
+</section>

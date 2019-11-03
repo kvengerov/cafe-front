@@ -1,0 +1,62 @@
+<section class="add-review">
+  <div class="review-box">
+    <form class="review-form" [formGroup]="form" (ngSubmit)="sendReview()" novalidate autocomplete="off">
+      <div class="review-form__block">
+        <fieldset class="rating">
+          <legend class="rating__caption">Ваша общая оценка этого ресторана</legend>
+          <div class="rating__group">
+            <input class="rating__input" type="radio" name="review" id="review-1" value="1" (click)="checkedRating($event)">
+            <label class="rating__star" for="review-1" aria-label="Ужасно"></label>
+
+            <input class="rating__input" type="radio" name="review" id="review-2" value="2" (click)="checkedRating($event)">
+            <label class="rating__star" for="review-2" aria-label="Сносно"></label>
+
+            <input class="rating__input" type="radio" name="review" id="review-3" value="3" (click)="checkedRating($event)">
+            <label class="rating__star" for="review-3" aria-label="Нормально"></label>
+
+            <input class="rating__input" type="radio" name="review" id="review-4" value="4" (click)="checkedRating($event)">
+            <label class="rating__star" for="review-4" aria-label="Хорошо"></label>
+
+            <input class="rating__input" type="radio" name="review" id="review-5" value="5" (click)="checkedRating($event)">
+            <label class="rating__star" for="review-5" aria-label="Отлично"></label>
+
+            <div class="rating__focus"></div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="review-form__block">
+        <label class="review-form__label"
+               for="title"
+               [ngClass]="{'review-invalid': form.get('title').invalid && form.get('title').touched}">Заголовок Вашего
+          отзыва</label>
+        <input class="review-form__input"
+               type="text"
+               formControlName="title"
+               id="title"
+               placeholder="Опишите интересную деталь">
+      </div>
+      <div class="review-form__block">
+        <label class="review-form__label"
+               for="text"
+               [ngClass]="{'review-invalid': form.get('text').invalid && form.get('text').touched}">Ваш отзыв</label>
+        <textarea class="review-form__textarea"
+                  type="text"
+                  rows="5"
+                  formControlName="text"
+                  id="text"
+                  placeholder="Расскажите другим путешественникам о своих впечатлениях: еда, атмосфера, обслуживание."></textarea>
+      </div>
+
+      <label class="review-form__block review-form__check">
+        <input type="checkbox"
+               id="checkbox"
+               (change)="checkboxValidation($event)">
+        <span class="review-form__check--box"></span>
+        <span>Я подтверждаю, что этот отзыв основан на моих собственных впечатлениях и является моим мнением о данном ресторане. У меня нет ни личных, ни деловых связей с этим местом; написание данного отзыва не оплачивается и не вознаграждается каким-либо иным образом.</span>
+      </label>
+      <button class="review-form__button" type="submit">Отправить отзыв</button>
+    </form>
+    {{errorMessage}}
+  </div>
+</section>

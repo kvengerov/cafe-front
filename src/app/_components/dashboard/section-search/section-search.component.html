@@ -1,0 +1,14 @@
+<section class="search">
+  <div class="container">
+    <h1>Where will we rest?</h1>
+    <p>Let's pick a place</p>
+    <form class="auth-form" [formGroup]="form" (ngSubmit)="searchStore()" novalidate autocomplete="off">
+      <div class="input-group">
+        <input type="text" formControlName="name" class="form-control" placeholder="Search a place">
+        <div class="input-group-append">
+          <button type="submit" class="input-group-text button">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

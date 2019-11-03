@@ -1,0 +1,46 @@
+<form class="auth-form" [formGroup]="form" (ngSubmit)="register()" novalidate autocomplete="off">
+  <p class="auth-info">Sign up - it's free!</p>
+  <div class="auth-input-wrap">
+    <input
+      class="auth-input"
+      formControlName="username"
+      type="text"
+      id="username"
+      placeholder="Username"
+      [ngClass]="{'auth-invalid': form.get('username').invalid && form.get('username').touched}">
+    <div class="auth-error-message" *ngIf="form.get('username').invalid && form.get('username').touched">
+      <span *ngIf="form.get('email').errors['required']">Username must not be empty</span>
+    </div>
+  </div>
+  <div class="auth-input-wrap">
+    <input
+      class="auth-input"
+      formControlName="email"
+      type="text"
+      id="email"
+      placeholder="Email"
+      [ngClass]="{'auth-invalid': form.get('email').invalid && form.get('email').touched}">
+    <div class="auth-error-message" *ngIf="form.get('email').invalid && form.get('email').touched">
+      <span *ngIf="form.get('email').errors['required']">Email must not be empty</span>
+      <span *ngIf="form.get('email').errors['email']">Enter a valid email</span>
+    </div>
+  </div>
+  <div class="auth-input-wrap">
+    <input
+      class="auth-input"
+      formControlName="password"
+      type="password"
+      id="password"
+      placeholder="Password"
+      [ngClass]="{'auth-invalid': form.get('password').invalid && form.get('password').touched}">
+    <div class="auth-error-message" *ngIf="form.get('password').invalid && form.get('password').touched">
+      <span *ngIf="form.get('password').errors['required']">Password must not be empty</span>
+      <span
+        *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">
+      Password must be greater than {{form.get('password').errors['minlength']['requiredLength']}} characters.
+      Now {{form.get('password').errors['minlength']['actualLength']}}</span>
+    </div>
+  </div>
+  <button class="auth-button" type="submit" [disabled]="form.invalid || form.disabled">Send</button>
+</form>
+<p>{{errorMessage}}</p>

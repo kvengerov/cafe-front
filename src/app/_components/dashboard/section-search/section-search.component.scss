@@ -1,0 +1,56 @@
+@import "../../../_scss/variables";
+
+.search {
+  height: 50%;
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../../../../assets/cafe/restaurant.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  text-align: center;
+  color: $white;
+}
+
+.search h1 {
+  padding-top: 100px;
+  padding-bottom: 0;
+  font-size: 55px;
+}
+.search p {
+  margin: 18px 0;
+}
+.input-group {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 30px;
+  background: $white;
+  margin: auto;
+  padding: 2px;
+}
+.form-control {
+  border: 0;
+  border-radius: 30px;
+  margin: 2px;
+  box-shadow: none;
+  padding: 5px 15px;
+}
+.input-group-text {
+  width: 100px;
+  border-color: $accent_green;
+  background-color: $accent_green;
+  color: $white;
+  padding: 0 25px;
+  border-radius: 30px !important;
+  box-shadow: none;
+}
+
+
+@media (max-width: 576px) {
+  .search h1 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 400px) {
+  .search h1 {
+    font-size: 30px;
+  }
+}

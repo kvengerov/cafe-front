@@ -1,0 +1,18 @@
+<section class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 header-logo">
+        <img src="/assets/cafe/logo-food.png" routerLink="/">
+      </div>
+      <div class="col-md-6 header-button" *ngIf="!authService.userLogin; else auth">
+        <button type="button" class="login-button" (click)="onCreateRegister()">SignUp</button>
+        <button type="button" class="login-button" (click)="onCreateLogin()">LogIn</button>
+      </div>
+      <ng-template #auth>
+        <div class="col-md-6 header-button">
+          <button type="button" class="login-button" (click)="logout()">Logout</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>

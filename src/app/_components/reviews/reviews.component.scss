@@ -1,0 +1,9 @@
+@import "../../_scss/variables";
+
+.review-form__button {
+  border-color: $accent_green;
+  background-color: $accent_green;
+  color: $white;
+  padding: 10px 22px;
+  border-radius: 3px;
+}

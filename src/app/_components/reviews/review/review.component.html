@@ -1,0 +1,14 @@
+<div class="review">
+  <p style="color: #d9d9d9; font-size: 10px">Id Store: {{review.storeId}}</p>
+
+  <h3 class="review__title">{{review.title}}</h3>
+  <p class="review__text">{{review.text}}</p>
+  <p class="review__author">{{review.authorName}}</p>
+  <fieldset class="rating">
+    <div class="rating__group">
+      <input class="rating__star" type="radio" *ngFor="let choice of choices" [checked]="choice == this.review.rating" disabled>
+    </div>
+  </fieldset>
+  <p class="review__text">{{review.created | date:'d/LLLL/y'}}</p>
+
+</div>

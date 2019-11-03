@@ -1,0 +1,44 @@
+@import "../../_scss/variables";
+
+.header {
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../../../assets/cafe/restaurant.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  & img {
+    width: 170px;
+    float: left;
+  }
+  &-button {
+    margin-bottom: 20px;
+  }
+  &-content {
+    padding-top: 20px;
+  }
+}
+
+.login-button {
+  width: 100px;
+  padding: 5px 0;
+  outline: none;
+  border: 2px solid $white;
+  border-radius: 50px;
+  background: transparent;
+  color: $white;
+  float: right;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    &-logo {
+      height: 70px;
+    }
+    &-button,
+    &-logo {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

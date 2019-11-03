@@ -1,0 +1,43 @@
+<section class="stores">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a (click)="sortStores()"
+           class="link-sort">Sorting by name</a>
+        <a (click)="ratingStores()"
+           class="link-sort">Sorting by rating</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" *ngFor="let store of stores">
+        <div class="stores-box" [routerLink]="['/stores', store._id]">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="stores-image"
+                   [ngStyle]="{'background-image': 'url(' + store.imageSrc + ')'}">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="stores-details">
+                <div [ngStyle]="{'position': 'relative'}"></div>
+                <p class="stores-details__name">{{store.name}}</p>
+                <div class="rating">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+                <div>
+                  <span class="stores-details__additional"><i class="fa fa-map-marker"></i>{{store.location}}</span>
+                  <span class="stores-details__additional"><i class="fa fa-phone"></i>+{{store.phone}}</span>
+                  <span class="stores-details__additional" *ngFor="let tag of store.tags"><i class="fa fa-tags"></i>{{tag}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<section class="store">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="store-box">
+          <p class="store-name">{{store?.name}}</p>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <div class="store-detail">
+            <p class="store-detail__description">{{store?.description}}</p>
+            <div>
+              <div class="store-detail__additional"><i class="fa fa-map-marker"></i>{{store?.location}}</div>
+              <div class="store-detail__additional"><i class="fa fa-phone"></i>+{{store?.phone}}</div>
+              <div class="store-detail__additional" *ngFor="let tag of store?.tags"><i class="fa fa-tags"></i>{{tag}}</div>
+            </div>
+          </div>
+          <img class="store-detail__image" src="{{store?.imageSrc}}" alt="">
+        </div>
+
+        <div class="review-box">
+          <app-reviews></app-reviews>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
